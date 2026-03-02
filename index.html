@@ -29,7 +29,7 @@
     overflow-x: hidden;
   }
 
-  /* GRID BACKGROUND */
+  /* BLUEPRINT GRID BACKGROUND */
   body::before {
     content: '';
     position: fixed;
@@ -37,232 +37,105 @@
     background-image: 
       linear-gradient(rgba(255,215,0,0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255,215,0,0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
+    background-size: 40px 40px;
     pointer-events: none;
     z-index: 1;
-  }
-
-  /* GLOW EFFECT */
-  body::after {
-    content: '';
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 50% 50%, rgba(255,215,0,0.05) 0%, transparent 50%);
-    animation: pulse 8s ease-in-out infinite;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
   }
 
   .container {
     position: relative;
     z-index: 10;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
   }
 
   /* HEADER */
   .header {
-    padding: 3rem 0;
+    padding: 5rem 0 3rem;
     text-align: center;
-    position: relative;
   }
 
   .factory-badge {
     display: inline-block;
-    background: linear-gradient(135deg, rgba(255,215,0,0.2) 0%, rgba(255,215,0,0.05) 100%);
-    border: 2px solid var(--gold);
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid var(--gold);
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--gold);
-    font-weight: 600;
     margin-bottom: 2rem;
-    animation: fadeInDown 0.8s ease;
   }
 
   .logo {
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(3rem, 8vw, 7rem);
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
     font-weight: 900;
-    line-height: 0.9;
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: fadeInUp 1s ease;
-    text-shadow: 0 0 40px rgba(255,215,0,0.3);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+  }
+
+  .logo span {
+    color: var(--gold);
   }
 
   .subtitle {
-    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-size: 1.1rem;
     color: var(--dim);
-    font-weight: 300;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    animation: fadeInUp 1.2s ease;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 400;
   }
 
-  @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* WELCOME SECTION */
-  .welcome {
-    max-width: 800px;
-    margin: 4rem auto;
-    padding: 3rem;
-    background: linear-gradient(135deg, rgba(255,215,0,0.05) 0%, transparent 100%);
-    border: 1px solid rgba(255,215,0,0.2);
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-    animation: fadeIn 1.5s ease;
-  }
-
-  .welcome::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,215,0,0.1), transparent);
-    animation: shine 3s infinite;
-  }
-
-  @keyframes shine {
-    to { left: 100%; }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  .welcome h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
-
-  .welcome p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: #ccc;
-  }
-
-  /* SYSTEM GRID */
+  /* THE THREE ASSETS SECTION */
   .systems-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin: 5rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin: 4rem 0;
   }
 
   .system-card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 16px;
     padding: 2.5rem;
     position: relative;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden;
-    animation: slideIn 0.8s ease;
-    animation-fill-mode: both;
-  }
-
-  .system-card:nth-child(1) { animation-delay: 0.2s; }
-  .system-card:nth-child(2) { animation-delay: 0.4s; }
-  .system-card:nth-child(3) { animation-delay: 0.6s; }
-
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .system-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--gold), var(--silver));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
-  }
-
-  .system-card:hover::before {
-    transform: scaleX(1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
   }
 
   .system-card:hover {
-    transform: translateY(-8px);
     border-color: var(--gold);
-    box-shadow: 0 20px 60px rgba(255,215,0,0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
 
-  .system-number {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 5rem;
-    font-weight: 900;
-    color: rgba(255,215,0,0.1);
-    position: absolute;
-    top: -10px;
-    right: 20px;
-    line-height: 1;
-    pointer-events: none;
-  }
-
-  .system-icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
+  .card-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
     display: block;
   }
 
   .system-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--gold);
+    font-size: 1.4rem;
     margin-bottom: 1rem;
-    position: relative;
-    z-index: 2;
+    color: var(--text);
   }
 
   .system-desc {
-    color: var(--dim);
     font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
+    color: var(--dim);
+    margin-bottom: 2rem;
+    flex-grow: 1;
   }
 
   .system-features {
@@ -271,462 +144,204 @@
   }
 
   .system-features li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    color: #aaa;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    color: #ccc;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
   }
 
   .system-features li::before {
-    content: '▸';
+    content: '+';
     color: var(--gold);
-    font-weight: 700;
     margin-right: 0.8rem;
+    font-family: 'JetBrains Mono', monospace;
   }
 
-  /* SYSTEM BUTTON */
-  .system-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+  .btn {
+    display: inline-block;
+    padding: 1rem;
+    background: var(--gold);
     color: #000;
+    text-align: center;
+    text-decoration: none;
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    transition: background 0.3s ease;
   }
 
-  .system-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.5s ease;
+  .btn:hover {
+    background: #fff;
   }
 
-  .system-btn:hover::before {
-    left: 100%;
-  }
-
-  .system-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(255,215,0,0.4);
-  }
-
-  .system-btn:active {
-    transform: translateY(0);
-  }
-
-  /* EXECUTION ORDER */
-  .execution-order {
-    max-width: 800px;
-    margin: 0 auto 5rem;
+  /* SYSTEM SYNERGY (The "Machine") */
+  .machine-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
     padding: 3rem;
-    background: linear-gradient(135deg, rgba(255,215,0,0.08) 0%, rgba(255,215,0,0.02) 100%);
-    border: 2px solid rgba(255,215,0,0.3);
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
+    margin-bottom: 5rem;
   }
 
-  .execution-order::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--gold), transparent, var(--gold));
-  }
-
-  .execution-order h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8rem;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .execution-order .eo-subtitle {
-    font-size: 1.05rem;
-    color: var(--dim);
-    margin-bottom: 2rem;
-    line-height: 1.7;
-  }
-
-  .eo-steps {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .eo-step {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.2rem;
-    padding: 1.2rem 0;
-    border-bottom: 1px solid rgba(255,215,0,0.1);
-  }
-
-  .eo-step:last-child {
-    border-bottom: none;
-  }
-
-  .eo-num {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 900;
-    color: var(--gold);
-    min-width: 50px;
+  .machine-header {
+    margin-bottom: 3rem;
     text-align: center;
-    line-height: 1;
-    padding-top: 4px;
   }
 
-  .eo-content h4 {
+  .machine-header h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--gold);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .step-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .step {
+    position: relative;
+  }
+
+  .step-num {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.05);
+    position: absolute;
+    top: -1.5rem;
+    left: 0;
+  }
+
+  .step-content h4 {
     font-family: 'Orbitron', sans-serif;
     font-size: 1rem;
-    color: var(--text);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.8rem;
+    position: relative;
+    z-index: 2;
   }
 
-  .eo-content p {
-    font-size: 0.9rem;
-    color: var(--dim);
-    line-height: 1.6;
-  }
-
-  .eo-arrow {
-    text-align: center;
-    color: var(--gold);
-    font-size: 1.2rem;
-    padding: 0.3rem 0;
-    opacity: 0.5;
-  }
-
-  .eo-result {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: rgba(255,215,0,0.05);
-    border-left: 4px solid var(--gold);
-    border-radius: 0 12px 12px 0;
-  }
-
-  .eo-result p {
-    font-size: 0.95rem;
-    color: #ccc;
-    line-height: 1.7;
-  }
-
-  .eo-result strong {
-    color: var(--gold);
-  }
-
-  /* BONUS SECTION */
-  .bonus-section {
-    background: linear-gradient(135deg, rgba(192,192,192,0.05) 0%, transparent 100%);
-    border: 1px solid var(--steel);
-    border-radius: 20px;
-    padding: 3rem;
-    margin: 5rem 0;
-    animation: fadeIn 2s ease;
-  }
-
-  .bonus-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    color: var(--silver);
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-
-  .bonus-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-
-  .bonus-item {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: all 0.3s ease;
-  }
-
-  .bonus-item:hover {
-    background: rgba(255,215,0,0.05);
-    border-color: var(--gold);
-    transform: translateY(-5px);
-  }
-
-  .bonus-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .bonus-name {
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-  }
-
-  .bonus-desc {
+  .step-content p {
     font-size: 0.85rem;
     color: var(--dim);
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   /* FOOTER */
   .footer {
     text-align: center;
-    padding: 4rem 2rem 2rem;
+    padding: 4rem 0;
     border-top: 1px solid var(--border);
-    margin-top: 5rem;
-  }
-
-  .footer-logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
-
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .footer-links a {
-    color: var(--dim);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    transition: color 0.3s ease;
-  }
-
-  .footer-links a:hover {
-    color: var(--gold);
-  }
-
-  .footer-copy {
     color: var(--steel);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
+
+  .footer a { color: var(--dim); text-decoration: none; margin: 0 10px; }
+  .footer a:hover { color: var(--gold); }
 
   @media (max-width: 768px) {
-    .systems-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .logo {
-      font-size: 3rem;
-    }
-
-    .execution-order {
-      padding: 2rem 1.5rem;
-    }
-
-    .eo-step {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .eo-num {
-      min-width: auto;
-    }
+    .step-list { grid-template-columns: 1fr; gap: 3rem; }
+    .logo { font-size: 3rem; }
   }
 </style>
 </head>
 <body>
 
 <div class="container">
-
-  <!-- HEADER -->
   <header class="header">
-    <div class="factory-badge">🏭 Business in a Box</div>
-    <h1 class="logo">THE INVISIBLE<br/>FACTORY</h1>
-    <p class="subtitle">Your Complete Digital Business System</p>
+    <div class="factory-badge">Asset Infrastructure Loaded</div>
+    <h1 class="logo">THE INVISIBLE<br/><span>FACTORY</span></h1>
+    <p class="subtitle">A Turnkey Digital Business System. Built Once. Sells Forever.</p>
   </header>
 
-  <!-- WELCOME -->
-  <section class="welcome">
-    <h2>Welcome to Your Empire</h2>
-    <p><strong>Congratulations.</strong> You now have lifetime access to the complete Invisible Factory — everything you need to build, launch, and scale a profitable digital business.</p>
-    <p style="margin-top:1rem;">This is not a course. This is not a community. This is a <strong>turnkey business system</strong> — the same infrastructure used by 6 and 7-figure digital entrepreneurs, now in your hands.</p>
-    <p style="margin-top:1rem;color:var(--gold);font-weight:600;">No monthly fees. No upsells. No expiration. This is yours forever.</p>
-  </section>
-
-  <!-- SYSTEMS GRID -->
-  <section class="systems-grid">
-
-    <!-- SYSTEM 1: AI Search Hustle -->
+  <div class="systems-grid">
+    <!-- ASSET 01: AI SEARCH HUSTLE -->
     <div class="system-card">
-      <div class="system-number">01</div>
-      <div class="system-icon">🤖</div>
-      <h3 class="system-title">AI Search Hustle Blueprint</h3>
-      <p class="system-desc">Turn search intent into automated income using the 3 Asset System. Stop chasing algorithms and start answering demand.</p>
+      <span class="card-tag">INTEL LAYER / BLUEPRINT</span>
+      <h3 class="system-title">AI Search Hustle</h3>
+      <p class="system-desc">Stop gambling with algorithms. Use the <strong>Search Intent Formula</strong> to find people already looking to buy. This is your strategy foundation.</p>
       <ul class="system-features">
-        <li>The 3 Levels of Search Intent</li>
-        <li>The 3 Asset System Architecture</li>
-        <li>Simple AI Search Keyword Method</li>
-        <li>Content-to-Lead Automation</li>
-        <li>Monetization Stacking Strategy</li>
+        <li>Identify Level 2 & 3 Intent</li>
+        <li>Simple AI Search Method</li>
+        <li>Demand-to-Content Mapping</li>
+        <li>Automated Lead Generation</li>
       </ul>
-      <a href="THE AI SEARCH HUSTLE.pdf" target="_blank" class="system-btn">
-        Open Blueprint
-      </a>
+      <a href="THE AI SEARCH HUSTLE.pdf" target="_blank" class="btn">VIEW BLUEPRINT</a>
     </div>
 
-    <!-- SYSTEM 2: 7-Day Launch Playbook -->
+    <!-- ASSET 02: 7-DAY LAUNCH -->
     <div class="system-card">
-      <div class="system-number">02</div>
-      <div class="system-icon">📘</div>
-      <h3 class="system-title">7-Day Launch Playbook</h3>
-      <p class="system-desc">Create, launch, and sell your first digital product in one week. No experience. No inventory. No overwhelm.</p>
+      <span class="card-tag">PRODUCT LAYER / PLAYBOOK</span>
+      <h3 class="system-title">7-Day Launch Kit</h3>
+      <p class="system-desc">The beginner's frame for turning intent into income. Create, launch, and sell your first digital product in exactly one week.</p>
       <ul class="system-features">
-        <li>Day 1-2: Validate & Create Assets</li>
-        <li>Day 3-4: Build Your Sales Hub & Lead Magnet</li>
-        <li>Day 5: Pick ONE Traffic Source</li>
-        <li>Day 6: Capture Emails (Leverage)</li>
-        <li>Day 7: Launch & Scale Strategy</li>
+        <li>Validate Your Idea (Day 1)</li>
+        <li>Canva Asset Creation (Day 2)</li>
+        <li>Lead Magnet Protocol (Day 4)</li>
+        <li>The Day 6 Email Leverage</li>
       </ul>
-      <a href="LIVEThe 7-Day Digital Product Launch Starter Kit.pdf" target="_blank" class="system-btn">
-        Open Playbook
-      </a>
+      <a href="LIVEThe 7-Day Digital Product Launch Starter Kit.pdf" target="_blank" class="btn">VIEW PLAYBOOK</a>
     </div>
 
-    <!-- SYSTEM 3: Traffic Target System -->
-    <div class="system-card">
-      <div class="system-number">03</div>
-      <div class="system-icon">🎯</div>
-      <h3 class="system-title">Traffic Target System</h3>
-      <p class="system-desc">The 4-part operating system for generating targeted traffic. Build your evergreen traffic engine without paid ads.</p>
+    <!-- ASSET 03: TRAFFIC TARGET -->
+    <div class="system-card" style="border-color: var(--steel);">
+      <span class="card-tag">GROWTH LAYER / ENGINE</span>
+      <h3 class="system-title">Traffic Target OS</h3>
+      <p class="system-desc">Scale your 3-Asset System using the 4-part traffic engine. Build evergreen visibility across Pinterest, YouTube, and Blogs.</p>
       <ul class="system-features">
-        <li>Traffic Foundations (4 Main Sources)</li>
-        <li>Platform Leverage Playbooks</li>
-        <li>Conversion & Bridge Alignment</li>
-        <li>Authority Acceleration Tactics</li>
+        <li>The 4 Main Traffic Sources</li>
+        <li>Platform Leverage Strategies</li>
+        <li>Bridge Alignment Tactics</li>
         <li>14-Day Scaling Sprint</li>
       </ul>
-      <a href="https://llclick.com/vdn7mzm6/" target="_blank" class="system-btn">
-        🚀 Access Full System
-      </a>
+      <a href="https://llclick.com/vdn7mzm6/" target="_blank" class="btn" style="background: var(--steel); color: white;">UNLOCK FULL OS</a>
     </div>
-
-  </section>
-
-  <!-- EXECUTION ORDER SECTION -->
-  <section class="execution-order">
-    <h2>🔑 How to Use This System</h2>
-    <p class="eo-subtitle">These three systems are designed to work together in a specific order. Start with System 01 — it builds the foundation that makes Systems 02 and 03 dramatically more effective.</p>
-
-    <ul class="eo-steps">
-      <li class="eo-step">
-        <div class="eo-num">01</div>
-        <div class="eo-content">
-          <h4>🤖 Start Here → AI Search Hustle Blueprint</h4>
-          <p>This is your intelligence layer. Following the <strong style="color:var(--gold);">Simple AI Search Method</strong>, you'll identify "Level 2" (Learning) and "Level 3" (Buying) search intent. This ensures you aren't gambling with content; you're building assets for people already looking to buy. This document "shows you the door" to strategy-based income.</p>
-        </div>
-      </li>
-      <li class="eo-arrow">↓</li>
-      <li class="eo-step">
-        <div class="eo-num">02</div>
-        <div class="eo-content">
-          <h4>📘 Then → 7-Day Launch Playbook</h4>
-          <p>Now that you have your keyword data, use this kit to <strong style="color:var(--gold);">build your Paid Offer and Lead Magnet</strong>. Following the Day 4-6 protocols, you'll create a 10-25 page guide that solves a specific problem. Remember: <strong>"Free = Awareness, Paid = Depth."</strong> This is the "Product" piece of your 3 Asset System.</p>
-        </div>
-      </li>
-      <li class="eo-arrow">↓</li>
-      <li class="eo-step">
-        <div class="eo-num">03</div>
-        <div class="eo-content">
-          <h4>🎯 Finally → Traffic Target System</h4>
-          <p>With a validated product and a search-optimized offer, deploy your <strong style="color:var(--gold);">Traffic Foundations</strong>. Use your blog, YouTube, or Pinterest to pull in search traffic, feed them your free guide (Day 6 capture), and convert them to your paid offer. This completes the cycle and builds the "Machine" that works 24/7.</p>
-        </div>
-      </li>
-    </ul>
-
-    <div class="eo-result">
-      <p><strong>⚡ The Bottom Line:</strong> Strategy beats viral chaos every time. By starting with the <strong>AI Search Hustle</strong>, you eliminate the "Algorithm Prayer." You build once, you solve a specific problem, and you sell forever. Start with the Blueprint today.</p>
-    </div>
-  </section>
-
-  <!-- BONUS SECTION -->
-  <section class="bonus-section">
-    <h2 class="bonus-title">🎁 Factory Resources</h2>
-    <p style="text-align:center;color:var(--dim);margin-bottom:2rem;">Additional tools and systems included with your lifetime access</p>
-    
-    <div class="bonus-grid">
-      <div class="bonus-item">
-        <div class="bonus-icon">📊</div>
-        <div class="bonus-name">FGG Targeting Engine</div>
-        <p class="bonus-desc">Submit your links for high-intent traffic distribution</p>
-        <a href="https://llclick.com/vdn7mzm6/" target="_blank" style="color:var(--gold);font-size:0.8rem;text-decoration:none;display:block;margin-top:1rem;font-weight:600;">ACTIVATE →</a>
-      </div>
-
-      <div class="bonus-item">
-        <div class="bonus-icon">📚</div>
-        <div class="bonus-name">Resource Library</div>
-        <p class="bonus-desc">Funnel templates, posting strategies, and monetization blueprints</p>
-        <a href="https://freegameguys.blogspot.com" target="_blank" style="color:var(--gold);font-size:0.8rem;text-decoration:none;display:block;margin-top:1rem;font-weight:600;">ACCESS →</a>
-      </div>
-
-      <div class="bonus-item">
-        <div class="bonus-icon">🎬</div>
-        <div class="bonus-name">YouTube Channel</div>
-        <p class="bonus-desc">Step-by-step walkthroughs and system breakdowns</p>
-        <a href="https://youtube.com/@freegameguys?sub_confirmation=1" target="_blank" style="color:var(--gold);font-size:0.8rem;text-decoration:none;display:block;margin-top:1rem;font-weight:600;">SUBSCRIBE →</a>
-      </div>
-
-      <div class="bonus-item">
-        <div class="bonus-icon">📌</div>
-        <div class="bonus-name">Pinterest Strategy</div>
-        <p class="bonus-desc">Evergreen traffic system and pin automation guides</p>
-        <a href="https://www.pinterest.com/FreeGameGuys/" target="_blank" style="color:var(--gold);font-size:0.8rem;text-decoration:none;display:block;margin-top:1rem;font-weight:600;">FOLLOW →</a>
-      </div>
-    </div>
-  </section>
-
-</div>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-logo">FREEGAMEGUYS</div>
-  <div class="footer-links">
-    <a href="https://beacons.ai/freegameguys">Beacons</a>
-    <a href="https://freegameguys.blogspot.com">Blog</a>
-    <a href="https://youtube.com/@freegameguys?sub_confirmation=1">YouTube</a>
-    <a href="https://www.pinterest.com/FreeGameGuys/">Pinterest</a>
-    <a href="https://www.tiktok.com/@freegameguys">TikTok</a>
   </div>
-  <p class="footer-copy">© 2026 FreeGameGuys · The Invisible Factory · Business in a Box</p>
-  <p class="footer-copy" style="margin-top:0.5rem;">Teaching real people how to build real digital businesses. No ads. No hype. Just systems.</p>
-</footer>
+
+  <section class="machine-box">
+    <div class="machine-header">
+      <h2>THE MACHINE</h2>
+      <p style="color: var(--dim);">How these assets synchronize into a business</p>
+    </div>
+    
+    <div class="step-list">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h4>Identify Demand</h4>
+          <p>Use the <strong>AI Search Hustle</strong> to find the specific keywords where "Buying Intent" is high. Don't create content first; find the demand first.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h4>Build the Asset</h4>
+          <p>Follow the <strong>7-Day Playbook</strong> to create a 10-25 page PDF that solves the problem you found in Step 1. Your guide is the "Machine" that converts visitors.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h4>Automate Traffic</h4>
+          <p>Deploy the <strong>Traffic Target System</strong>. Feed your optimized search traffic into your email capture. "Free = Awareness, Paid = Depth."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>FREEGAMEGUYS • THE INVISIBLE FACTORY • NO HYPЕ. JUST SYSTEMS.</p>
+    <div style="margin-top: 1rem;">
+      <a href="https://beacons.ai/freegameguys">Beacons</a>
+      <a href="https://freegameguys.blogspot.com">Blog</a>
+      <a href="https://youtube.com/@freegameguys">YouTube</a>
+      <a href="https://www.pinterest.com/FreeGameGuys/">Pinterest</a>
+    </div>
+  </footer>
+</div>
 
 </body>
 </html>
